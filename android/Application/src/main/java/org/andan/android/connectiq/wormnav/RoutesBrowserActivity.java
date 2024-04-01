@@ -79,8 +79,6 @@ import pt.karambola.gpx.util.GpxUtils;
 import static android.view.View.GONE;
 import static org.andan.android.connectiq.wormnav.R.id.osmmap;
 
-import org.andan.android.connectiq.wormnav.BuildConfig;
-
 //import android.app.AlertDialog;
 
 /**
@@ -165,7 +163,7 @@ public class RoutesBrowserActivity extends Utils {
             actionBar.setStackedBackgroundDrawable(new ColorDrawable(Color.parseColor("#00ffffff")));
         }
 
-        Configuration.getInstance().setUserAgentValue(BuildConfig.APPLICATION_ID);
+        Configuration.getInstance().setUserAgentValue(this.getPackageName());
 
         Context ctx = getApplicationContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));

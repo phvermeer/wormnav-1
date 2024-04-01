@@ -71,8 +71,6 @@ import pt.karambola.gpx.util.GpxUtils;
 
 import static org.andan.android.connectiq.wormnav.R.id.osmmap;
 
-import org.andan.android.connectiq.wormnav.BuildConfig;
-
 /**
  * Route Picker activity created by piotr on 02.05.17.
  */
@@ -160,7 +158,7 @@ public class TracksBrowserActivity extends Utils {
             actionBar.setStackedBackgroundDrawable(new ColorDrawable(Color.parseColor("#00ffffff")));
         }
 
-        Configuration.getInstance().setUserAgentValue(BuildConfig.APPLICATION_ID);
+        Configuration.getInstance().setUserAgentValue(this.getPackageName());
         setContentView(R.layout.activity_tracks_browser);
         Context ctx = getApplicationContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));

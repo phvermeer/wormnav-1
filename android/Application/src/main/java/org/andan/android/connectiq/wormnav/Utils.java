@@ -60,7 +60,6 @@ import pt.karambola.gpx.beans.Track;
 import pt.karambola.gpx.beans.TrackPoint;
 
 import static android.graphics.Bitmap.Config.ARGB_8888;
-import org.andan.android.connectiq.wormnav.BuildConfig;
 
 public class Utils extends AppCompatActivity {
 
@@ -765,7 +764,8 @@ public class Utils extends AppCompatActivity {
     public static boolean isDeviceEmulator() {
         //return Build.FINGERPRINT.startsWith("google/sdk_gphone_x86");
         //return false;
-        return BuildConfig.FLAVOR.equals("emu");
+        //return BuildConfig.FLAVOR.equals("emu");
+        return Build.DEVICE.startsWith("emulator");
     }
 
     public static String getBaseFileNameFromUri(Uri uri) {

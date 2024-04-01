@@ -136,7 +136,7 @@ public class PoiActivity extends Utils {
             actionBar.setStackedBackgroundDrawable(new ColorDrawable(Color.parseColor("#00ffffff")));
         }
 
-        Configuration.getInstance().setUserAgentValue(BuildConfig.APPLICATION_ID);
+        Configuration.getInstance().setUserAgentValue(this.getPackageName());
 
         Context ctx = getApplicationContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
@@ -263,9 +263,9 @@ public class PoiActivity extends Utils {
 
             Data.sFilteredPoi = ListUtils.filter(Data.sCopiedPoiGpx.getPoints(), Data.sViewPoiFilter);
 
-        /*
-         * Let's assign a color to each existing POI type
-         */
+            /*
+             * Let's assign a color to each existing POI type
+             */
             List<String> wptTypes = GpxUtils.getDistinctPointTypes(Data.sFilteredPoi);
 
             Map<String, Integer> wptTypeColourMap = new HashMap<>();
@@ -360,10 +360,10 @@ public class PoiActivity extends Utils {
                     @Override
                     public boolean onMarkerClick(Marker marker, MapView mapView) {
 
-                    /*
-                     * @osmdroid allows to click multiple markers at a time. Here we need a workaround
-                     * to avoid opening a dialog for each clicked one.
-                     */
+                        /*
+                         * @osmdroid allows to click multiple markers at a time. Here we need a workaround
+                         * to avoid opening a dialog for each clicked one.
+                         */
                         if (mPoiEditDialog == null || !mPoiEditDialog.isShowing()) {
                             displayEditDialog(markerToPoi.get(marker));
                         }
@@ -1001,10 +1001,9 @@ public class PoiActivity extends Utils {
     }
 
     private void exportPois(final boolean save_view) {
-        if(save_view) {
+        if (save_view) {
             performGpxFileSave(REQUEST_CODE_EXPORT_VISIBLE_POIS, Data.lastImportedExportedUri);
-        }
-        else {
+        } else {
             performGpxFileSave(REQUEST_CODE_EXPORT_ALL_POIS, Data.lastImportedExportedUri);
         }
     }
@@ -1163,7 +1162,7 @@ public class PoiActivity extends Utils {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-       // final String path = Data.lastImportedFileFullPath.length()>0? getParentFromFullPath( Data.lastImportedFileFullPath):Data.defaultDirectoryPath;
+        // final String path = Data.lastImportedFileFullPath.length()>0? getParentFromFullPath( Data.lastImportedFileFullPath):Data.defaultDirectoryPath;
 
         switch (item.getItemId()) {
 
