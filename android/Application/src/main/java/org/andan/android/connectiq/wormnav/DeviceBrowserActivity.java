@@ -4,6 +4,7 @@
  */
 package org.andan.android.connectiq.wormnav;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,7 +14,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.ResultReceiver;
-import android.util.FloatProperty;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -143,6 +143,7 @@ public class DeviceBrowserActivity extends AppCompatActivity implements AdapterV
         }
     };
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

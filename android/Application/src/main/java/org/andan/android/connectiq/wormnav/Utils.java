@@ -60,9 +60,6 @@ import pt.karambola.gpx.beans.Track;
 import pt.karambola.gpx.beans.TrackPoint;
 
 import static android.graphics.Bitmap.Config.ARGB_8888;
-
-import org.andan.android.connectiq.wormnav.BuildConfig;
-
 import org.andan.android.connectiq.wormnav.BuildConfig;
 
 public class Utils extends AppCompatActivity {

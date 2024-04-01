@@ -6,7 +6,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.3'
+        classpath 'com.android.tools.build:gradle:8.2.2'
     }
 }
 
@@ -16,7 +16,6 @@ dependencies {
     implementation files('libs/httpclient-4.5.jar')
     implementation files('libs/httpcore-4.4.1.jar')
     implementation files('libs/httpmime-4.5.jar')
-    implementation files('libs/connectiq.jar')
 }
 
 repositories {
@@ -33,6 +32,7 @@ dependencies {
     implementation 'org.osmdroid:osmdroid-android:6.1.6'
     implementation 'com.github.MKergall:osmbonuspack:6.3'
     implementation 'com.google.code.gson:gson:2.8.6'
+    implementation files('libs/connectiq.jar')
     testImplementation 'junit:junit:4.13'
 
     implementation project(':Karambola')
@@ -50,7 +50,6 @@ List<String> dirs = [
 android {
 
     compileSdkVersion 30
-    buildToolsVersion '30.0.2'
 
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
@@ -133,6 +132,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    namespace 'org.andan.android.connectiq.wormnav'
 }
 
 
