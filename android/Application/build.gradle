@@ -49,7 +49,7 @@ List<String> dirs = [
 
 android {
 
-    compileSdkVersion 30
+    compileSdk 34
 
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
@@ -60,7 +60,7 @@ android {
     defaultConfig {
         applicationId "org.andan.android.connectiq.wormnav"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdk 34
         versionCode 121
         versionName '1.2.1'
         setProperty("archivesBaseName", "Worm navigation")
