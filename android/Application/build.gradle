@@ -10,6 +10,7 @@ buildscript {
 }
 
 apply plugin: 'com.android.application'
+apply plugin: 'org.jetbrains.kotlin.android'
 
 dependencies {
     implementation files('libs/httpclient-4.5.jar')
@@ -32,6 +33,10 @@ dependencies {
     implementation 'com.github.MKergall:osmbonuspack:6.3'
     implementation 'com.google.code.gson:gson:2.10.1'
     implementation 'com.garmin.connectiq:ciq-companion-app-sdk:2.0.3@aar'
+    implementation 'androidx.compose.ui:ui:1.6.5'
+    implementation 'androidx.core:core-ktx:+'
+    implementation 'androidx.activity:activity:1.8.2'
+    implementation 'androidx.compose.material3:material3:1.2.1'
     testImplementation 'junit:junit:4.13.2'
 
     implementation project(':Karambola')
@@ -58,11 +63,22 @@ android {
 
     defaultConfig {
         applicationId "org.andan.android.connectiq.wormnav"
-        minSdkVersion 21
+        minSdkVersion 24
         targetSdk 34
         versionCode 121
         versionName '1.2.1'
         setProperty("archivesBaseName", "Worm navigation")
+    }
+
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.3"
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 
     // Load keystore
@@ -128,8 +144,8 @@ android {
 
     useLibrary 'org.apache.http.legacy'
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     namespace 'org.andan.android.connectiq.wormnav'
 }
