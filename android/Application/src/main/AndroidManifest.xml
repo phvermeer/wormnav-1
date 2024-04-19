@@ -41,7 +41,7 @@
         android:theme="@style/AppTheme" >
 
         <activity
-            android:name="org.andan.android.connectiq.wormnav.MainActivity"
+            android:name="org.andan.android.connectiq.wormnav.TestActivity"
             android:theme="@style/MyTheme"
             android:largeHeap="true"
             android:exported="true"
@@ -49,6 +49,16 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.andan.android.connectiq.wormnav.MainActivity"
+            android:theme="@style/MyTheme"
+            android:largeHeap="true"
+            android:exported="false"
+            android:label="@string/app_name">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
@@ -121,7 +131,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <service
             android:name="org.andan.android.connectiq.wormnav.IQSendMessageIntentService"
             android:exported="false" />
