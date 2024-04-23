@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.ResultReceiver;
@@ -50,6 +51,8 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import nl.phvermeer.mycompanionapp.Data;
 
 public class DeviceBrowserActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
@@ -176,7 +179,7 @@ public class DeviceBrowserActivity extends AppCompatActivity implements AdapterV
         //mConnectIQ = ConnectIQ.getInstance(this, IQConnectType.WIRELESS);
 
         Log.i(TAG, "onCreate: initialize ConnectIQ");
-        if (!Utils.isDeviceEmulator())
+        if (!isDeviceEmulator())
             mConnectIQ = ConnectIQ.getInstance(this, IQConnectType.WIRELESS);
         else mConnectIQ = ConnectIQ.getInstance(this, IQConnectType.TETHERED);
         // Initialize the SDK
@@ -194,6 +197,10 @@ public class DeviceBrowserActivity extends AppCompatActivity implements AdapterV
             Toast.makeText(getApplicationContext(), "No points to sent", Toast.LENGTH_SHORT).show();
             finish();
         }
+    }
+
+    public static boolean isDeviceEmulator() {
+        return Build.DEVICE.startsWith("emulator");
     }
 
     @Override

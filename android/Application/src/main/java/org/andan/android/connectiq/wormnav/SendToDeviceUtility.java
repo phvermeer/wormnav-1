@@ -13,7 +13,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import nl.phvermeer.mycompanionapp.Data;
 import pt.karambola.gpx.beans.GenericPoint;
+import pt.karambola.gpx.beans.Point;
 import pt.karambola.gpx.beans.Route;
 import pt.karambola.gpx.beans.RoutePoint;
 import pt.karambola.gpx.beans.Track;
@@ -24,23 +26,28 @@ public class SendToDeviceUtility {
     private SendToDeviceUtility() {
     }
 
-    public static void startDeviceBrowserActivity(Context ctx, Track track) {
-        createIntentAndStartActivity(ctx, track.getTrackPoints() ,track.getName(), (float) GpxUtils.lengthOfTrack(track) );
+    public static void startDeviceBrowserActivity(Context ctx, List<Point> waypoints, Track track) {
+        createIntentAndStartActivity(ctx, waypoints, track);
     }
-
+/*
     public static void startDeviceBrowserActivity(Context ctx, Route route) {
-        createIntentAndStartActivity(ctx, route.getRoutePoints(),route.getName(), (float) GpxUtils.lengthOfRoute(route) );
+        createIntentAndStartActivity(ctx, route.getRoutePoints(),route.getName(), (float) GpxUtils.lengthOfRoute(route), new MySettings() );
     }
+*/
+    private static void createIntentAndStartActivity(Context ctx, List<Point> waypoints, Track track) {
 
-    private static void createIntentAndStartActivity(Context ctx, List<? extends GenericPoint> genericPoints, String name, float length) {
         Data.geoPointsForDevice.clear();
-        for(GenericPoint genericPoint : genericPoints) {
+        for(GenericPoint genericPoint : track.getTrackPoints()) {
             //Data.geoPointsForDevice.add(new GeoPoint(genericPoint.getLatitude(), genericPoint.getLongitude(), genericPoint.getElevation()));
             Data.geoPointsForDevice.add(new GeoPoint(genericPoint.getLatitude(), genericPoint.getLongitude(), genericPoint.getElevation()==null ? 0. : genericPoint.getElevation()));
         }
+
+        Data.waypoints = waypoints;
+        Data.track = track;
+
         Intent intent = new Intent(ctx, DeviceBrowserActivity.class);
-        intent.putExtra(DeviceBrowserActivity.TRACK_NAME, name);
-        intent.putExtra(DeviceBrowserActivity.TRACK_LENGTH, length);
+        intent.putExtra(DeviceBrowserActivity.TRACK_NAME, track.getName());
+        intent.putExtra(DeviceBrowserActivity.TRACK_LENGTH, (float) GpxUtils.lengthOfTrack(track));
 
         intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         ctx.startActivity(intent);

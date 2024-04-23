@@ -14,7 +14,7 @@
  limitations under the License.
 -->
 <resources>
-    <string name="app_name">WormNav Companion</string>
+    <string name="app_name">MyApp Companion</string>
     <string name="route_creator_name">Route Creator</string>
     <string name="route_editor_name">Route Editor</string>
     <string name="route_picker_name">Route Manager</string>

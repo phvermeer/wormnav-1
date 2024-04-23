@@ -41,7 +41,7 @@
         android:theme="@style/AppTheme" >
 
         <activity
-            android:name="org.andan.android.connectiq.wormnav.TestActivity"
+            android:name="nl.phvermeer.mycompanionapp.MainActivity"
             android:theme="@style/MyTheme"
             android:largeHeap="true"
             android:exported="true"
@@ -51,66 +51,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="org.andan.android.connectiq.wormnav.MainActivity"
-            android:theme="@style/MyTheme"
-            android:largeHeap="true"
-            android:exported="false"
-            android:label="@string/app_name">
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
 
-        <activity
-            android:name="org.andan.android.connectiq.wormnav.RouteCreatorActivity"
-            android:theme="@style/MapTheme"
-            android:exported="false"
-            android:label="@string/route_creator_name">
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name="org.andan.android.connectiq.wormnav.RouteEditorActivity"
-            android:theme="@style/MapTheme"
-            android:exported="false"
-            android:label="@string/route_editor_name">
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name="org.andan.android.connectiq.wormnav.RouteOptimizerActivity"
-            android:theme="@style/MapTheme"
-            android:exported="false"
-            android:label="@string/route_optimizer_name">
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name="org.andan.android.connectiq.wormnav.RoutesBrowserActivity"
-            android:theme="@style/MapTheme"
-            android:exported="false"
-            android:label="@string/route_picker_name">
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name="org.andan.android.connectiq.wormnav.TracksBrowserActivity"
-            android:theme="@style/MapTheme"
-            android:exported="false"
-            android:label="@string/track_manager_name">
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
 
         <activity
             android:name="org.andan.android.connectiq.wormnav.DeviceBrowserActivity"
@@ -122,15 +63,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name="org.andan.android.connectiq.wormnav.PoiActivity"
-            android:theme="@style/MapTheme"
-            android:exported="false"
-            android:label="@string/poi_manager_name">
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
         <service
             android:name="org.andan.android.connectiq.wormnav.IQSendMessageIntentService"
             android:exported="false" />

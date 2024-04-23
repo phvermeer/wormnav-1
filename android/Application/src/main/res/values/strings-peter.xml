@@ -4,4 +4,7 @@
     <string name="select_track">Select Track</string>
     <string name="exit_button">Exit</string>
     <string name="back_button">Back</string>
+    <string name="send_to_device">Send to Device</string>
+    <string name="tracks">Tracks</string>
+    <string name="waypoints">Waypoints</string>
 </resources>
